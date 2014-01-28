@@ -34,7 +34,7 @@ class GoogleCookie {
 				$this->utmz['sessionId'],
 				$this->utmz['campaignId'],
 				$utm[0]
-			) = explode('.',$utm[0]);
+			) = preg_split("/(?>\.)/i", $utm[0], 5);
 			
 			//make the timestamp human readible
 			$this->utmz['stamp'] = date('Y-m-d H:i:s',$this->utmz['stamp']);
